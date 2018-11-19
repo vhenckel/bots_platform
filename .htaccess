@@ -1,0 +1,45 @@
+SetEnv   LC_ALL  pt_BR.UTF-8
+AddDefaultCharset utf-8
+#php_value session.auto_start 1
+# added assets because we are using grocery CRUD
+
+php_value memory_limit 30M
+php_value post_max_size 100M
+php_value upload_max_filesize 30M
+
+<IfModule mod_rewrite.c>
+
+#RewriteEngine On
+##First rewrite any request to the wrong domain to use the correct one (here www.)
+
+RewriteCond %{HTTP_HOST} !=localhost
+RewriteCond %{HTTP_HOST} !=127.0.0.1
+RewriteCond %{REMOTE_ADDR} !=127.0.0.1
+RewriteCond %{REMOTE_ADDR} !=::1
+#RewriteCond %{HTTP_HOST} !^www\.
+#RewriteRule ^(.*)$ http://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+#
+#RewriteCond %{HTTP:X-Forwarded-Proto} =http
+#RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+</IfModule>
+
+<FilesMatch ".(ttf|ttc|otf|eot|woff)$">
+    <IfModule mod_headers.c>
+        Header set Access-Control-Allow-Origin "*"
+    </IfModule>
+</FilesMatch>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(ttf|ttc|otf|eot|woff|woff2|font.css|css|js)$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+</IfModule>
+
+
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteCond $1 !^(index\.php|info\.php|css|js|img|assets|images|tools/gendata|robots\.txt|sitemap\.xml|grunt|icons-chat-robo\.ttf|icons-chat-robo\.ttc|icons-chat-robo\.otf|icons-chat-robo\.eot|icons-chat-robo\.woff|icons-chat-robo\.woff2)
+    RewriteRule ^(.*)$ index.php/$1 [L]
+</IfModule>

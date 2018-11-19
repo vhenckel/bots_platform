@@ -1,0 +1,3 @@
+
+var ApiGen = ApiGen || {};
+ApiGen.elements = [["c","Atendentes"],["c","Atendentes_model"],["c","Blocos_model"],["c","Chatbots"],["c","Chatbots_model"],["c","Conversas_model"],["f","crypto()"],["c","Dashboard"],["f","dd()"],["c","Dialogo_model"],["c","Dialogos"],["c","Leads_model"],["f","limpar()"],["f","limparTelefone()"],["c","Login"],["c","Login_model"],["c","Migrate"],["c","Migration_Initial_schema"],["c","MY_Controller"],["c","MY_Model"],["c","Preview"],["c","Respostas_model"],["c","Segmento_model"],["c","Segmentos"],["f","telefone()"],["f","upload()"],["c","Usuarios"],["c","Usuarios_model"],["c","Webservice"]];

@@ -1,0 +1,12 @@
+ChatBotLF.sublime-*
+/application/config/
+/assets/*
+/assetsAdmin/*
+*.json
+/.idea
+/nbproject/*
+/application/logs/*
+SQL-*
+*DS*
+apigen*
+vendor/
